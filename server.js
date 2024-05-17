@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql2');
 const cors = require('cors');
-var http = require('http');
+// var http = require('http');
 
 const app = express();
 app.use(cors());
@@ -14,13 +14,13 @@ app.use(bodyParser.json());
 // MySQL connection
 const pool = mysql.createPool({
     connectionLimit : 10,
-    // host            : '127.0.0.1:3306',
-    // user            : 'root',
+    // host            : 'localhost',
+    user            : 'root',
     host:'emp.czw28o8goa1u.ap-south-1.rds.amazonaws.com',
     port      :  3308,
-    user:'root',
+
     password        : 'lakshay123',
-    database        : ''
+    database        : 'emp'
 });
 
 // Verify connection
@@ -66,11 +66,11 @@ app.delete('/employees/:id', (req, res) => {
 });
 
 // Start server
-// app.listen(port, () => {
-//     console.log(`Server running on port: ${port}`);
-// });
+app.listen(port, () => {
+    console.log(`Server running on port: ${port}`);
+});
 
-http.createServer(function (req, res) {
-    res.write('** Welcome to GlobalLogic!!!! **'); //write a response to the client
-    res.end(); //end the response
-  }).listen(80);
+// http.createServer(function (req, res) {
+//     res.write('** Welcome to GlobalLogic!!!! **'); //write a response to the client
+//     res.end(); //end the response
+//   }).listen(80);
