@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mysql = require('mysql2');
 const cors = require('cors');
-
+var http = require('http');
 
 const app = express();
 app.use(cors());
@@ -63,6 +63,11 @@ app.delete('/employees/:id', (req, res) => {
 });
 
 // Start server
-app.listen(port, () => {
-    console.log(`Server running on port: ${port}`);
-});
+// app.listen(port, () => {
+//     console.log(`Server running on port: ${port}`);
+// });
+
+http.createServer(function (req, res) {
+    res.write('** Welcome to GlobalLogic!!!! **'); //write a response to the client
+    res.end(); //end the response
+  }).listen(80);
