@@ -17,10 +17,10 @@ const pool = mysql.createPool({
     // host            : '127.0.0.1:3306',
     // user            : 'root',
     host:'emp.czw28o8goa1u.ap-south-1.rds.amazonaws.com',
-    port      :  3306,
+    port      :  3308,
     user:'root',
     password        : 'lakshay123',
-    database        : 'emp'
+    database        : ''
 });
 
 // Verify connection
